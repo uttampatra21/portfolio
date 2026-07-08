@@ -84,7 +84,7 @@ export default function Navbar() {
                 <div
                   className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 z-10 cursor-pointer relative ${
                     pathname === item.href
-                      ? "bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-indigo-400"
+                      ? ""
                       : "text-slate-600 dark:text-slate-350 hover:text-slate-950 dark:hover:text-white"
                   }`}
                   onMouseEnter={() => setHoveredIndex(index)}
@@ -100,7 +100,15 @@ export default function Navbar() {
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
-                  {item.name}
+                  <span
+                    className={
+                      pathname === item.href
+                        ? "bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent dark:from-blue-400 dark:to-indigo-400 inline-block"
+                        : ""
+                    }
+                  >
+                    {item.name}
+                  </span>
                   {pathname === item.href && (
                     <motion.div
                       className="absolute bottom-1.5 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full shadow-md shadow-blue-500/50"
