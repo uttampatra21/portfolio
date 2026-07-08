@@ -13,6 +13,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://uttampatra.dev"),
   title: "Uttam Patra - Frontend Developer",
   description:
     "Frontend Developer with experience in building enterprise-grade SaaS applications, scalable frontend architecture, and responsive, performance-optimized web apps.",
