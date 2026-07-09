@@ -144,13 +144,13 @@ export default function HomePage() {
               {[
                 {
                   icon: Github,
-                  href: "https://github.com/uttampatra",
+                  href: "https://github.com/uttampatra21",
                   label: "GitHub",
                   color: "hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800",
                 },
                 {
                   icon: Linkedin,
-                  href: "https://linkedin.com/in/uttam-patra",
+                  href: "https://linkedin.com/in/uttampatra01",
                   label: "LinkedIn",
                   color: "hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/30",
                 },
