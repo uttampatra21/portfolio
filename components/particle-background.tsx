@@ -31,23 +31,45 @@ export default function ParticleBackground() {
       color: string
     }> = []
 
-    // Create particles with blue theme
-    const colors = ["rgba(59, 130, 246, 0.1)", "rgba(99, 102, 241, 0.1)", "rgba(147, 51, 234, 0.05)"]
+    const mouse = {
+      x: null as number | null,
+      y: null as number | null,
+      radius: 140
+    }
 
-    for (let i = 0; i < 60; i++) {
+    // Create particles with variable sizing
+    const colors = ["rgba(59, 130, 246, 0.15)", "rgba(99, 102, 241, 0.12)", "rgba(147, 51, 234, 0.08)"]
+
+    for (let i = 0; i < 70; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 3 + 1,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.25,
+        size: Math.random() * 2.5 + 1,
         opacity: Math.random() * 0.3 + 0.1,
         color: colors[Math.floor(Math.random() * colors.length)],
       })
     }
 
+    const handleMouseMove = (e: MouseEvent) => {
+      mouse.x = e.clientX
+      mouse.y = e.clientY
+    }
+
+    const handleMouseLeave = () => {
+      mouse.x = null
+      mouse.y = null
+    }
+
+    window.addEventListener("mousemove", handleMouseMove)
+    window.addEventListener("mouseleave", handleMouseLeave)
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      // Fetch dynamic theme color from document elements if applied
+      const customAccentRgb = document.documentElement.style.getPropertyValue('--custom-accent-rgb') || "59, 130, 246"
 
       particles.forEach((particle, index) => {
         // Update position
@@ -64,7 +86,23 @@ export default function ParticleBackground() {
         ctx.fillStyle = particle.color
         ctx.fill()
 
-        // Draw connections
+        // Draw connection to mouse cursor
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = particle.x - mouse.x
+          const dy = particle.y - mouse.y
+          const distance = Math.sqrt(dx * dx + dy * dy)
+
+          if (distance < mouse.radius) {
+            ctx.beginPath()
+            ctx.moveTo(particle.x, particle.y)
+            ctx.lineTo(mouse.x, mouse.y)
+            ctx.strokeStyle = `rgba(${customAccentRgb}, ${0.12 * (1 - distance / mouse.radius)})`
+            ctx.lineWidth = 0.6
+            ctx.stroke()
+          }
+        }
+
+        // Draw connections to other particles
         particles.forEach((otherParticle, otherIndex) => {
           if (index !== otherIndex) {
             const dx = particle.x - otherParticle.x
@@ -75,8 +113,8 @@ export default function ParticleBackground() {
               ctx.beginPath()
               ctx.moveTo(particle.x, particle.y)
               ctx.lineTo(otherParticle.x, otherParticle.y)
-              ctx.strokeStyle = `rgba(59, 130, 246, ${0.05 * (1 - distance / 120)})`
-              ctx.lineWidth = 0.5
+              ctx.strokeStyle = `rgba(${customAccentRgb}, ${0.05 * (1 - distance / 120)})`
+              ctx.lineWidth = 0.4
               ctx.stroke()
             }
           }
@@ -90,6 +128,8 @@ export default function ParticleBackground() {
 
     return () => {
       window.removeEventListener("resize", resizeCanvas)
+      window.removeEventListener("mousemove", handleMouseMove)
+      window.removeEventListener("mouseleave", handleMouseLeave)
     }
   }, [])
 
@@ -99,7 +139,7 @@ export default function ParticleBackground() {
       className="fixed inset-0 pointer-events-none z-0"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 3 }}
+      transition={{ duration: 2.5 }}
     />
   )
 }

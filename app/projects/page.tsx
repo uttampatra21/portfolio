@@ -125,10 +125,10 @@ export default function ProjectsPage() {
 
           <AnimatedText
             text="Selected Projects"
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 dark:from-white dark:via-blue-100 dark:to-white bg-clip-text text-transparent mb-6 tracking-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-white via-slate-200 to-white bg-clip-text text-transparent mb-6 tracking-tight"
           />
           <motion.p
-            className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -152,19 +152,19 @@ export default function ProjectsPage() {
 
         {/* CTA Section */}
         <motion.div
-          className="text-center mt-20 p-8 sm:p-12 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-xl"
+          className="text-center mt-20 p-8 sm:p-12 theme-lab-card shadow-xl"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-slate-950 dark:text-white">Have a Project in Mind?</h2>
-          <p className="text-slate-650 dark:text-slate-350 mb-8 max-w-xl mx-auto leading-relaxed text-sm sm:text-base">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">Have a Project in Mind?</h2>
+          <p className="text-slate-300 mb-8 max-w-xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
             I'm always excited to design new platforms, scale frontend architectures, and collaborate on engaging user interfaces.
           </p>
           <Button
             size="lg"
-            className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-xl font-semibold shadow-md shadow-blue-500/10 transition-all duration-300"
+            className="theme-lab-btn text-white px-8 py-5 rounded-xl font-bold shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 border border-white/5"
             asChild
           >
             <motion.a href="/contact" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>

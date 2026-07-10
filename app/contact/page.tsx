@@ -104,21 +104,21 @@ export default function ContactPage() {
           transition={{ duration: 0.8 }}
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 dark:bg-blue-400/10 rounded-full border border-blue-200/50 dark:border-blue-800/30 mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1 bg-blue-500/10 rounded-full border border-blue-800/30 mb-4"
             whileHover={{ scale: 1.05 }}
           >
-            <Sparkles className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" />
-            <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest font-mono">
+            <Sparkles className="h-3.5 w-3.5 text-blue-400" />
+            <span className="text-[10px] font-bold text-blue-400 uppercase tracking-widest font-mono">
               Get in Touch
             </span>
           </motion.div>
           
           <AnimatedText
             text="Let's build something together"
-            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 dark:from-white dark:via-blue-100 dark:to-white bg-clip-text text-transparent mb-6 tracking-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-white via-slate-200 to-white bg-clip-text text-transparent mb-6 tracking-tight"
           />
           <motion.p
-            className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-medium"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -135,18 +135,18 @@ export default function ContactPage() {
         >
           {/* Contact Form */}
           <motion.div
-            className="lg:col-span-7 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md p-6 sm:p-10 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-xl shadow-slate-900/5 dark:shadow-slate-950/20"
+            className="lg:col-span-7 theme-lab-card p-6 sm:p-10 shadow-xl"
             variants={itemVariants}
           >
-            <h2 className="text-2xl font-bold mb-8 text-slate-900 dark:text-white flex items-center gap-2.5">
+            <h2 className="text-2xl font-bold mb-8 text-white flex items-center gap-2.5">
               <span>Send Message</span>
-              <span className="text-xs font-mono text-slate-400 dark:text-slate-500 font-normal">// Response within 24h</span>
+              <span className="text-xs font-mono text-slate-500 font-normal">// Response within 24h</span>
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-xs font-bold font-mono uppercase tracking-wider mb-2 text-slate-600 dark:text-slate-400">
+                  <label htmlFor="name" className="block text-xs font-bold font-mono uppercase tracking-wider mb-2 text-slate-400">
                     Name *
                   </label>
                   <Input
@@ -156,13 +156,13 @@ export default function ContactPage() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-850 bg-white/50 dark:bg-slate-950/50 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-850 bg-slate-950/50 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none text-slate-100"
                     placeholder="John Doe"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-xs font-bold font-mono uppercase tracking-wider mb-2 text-slate-600 dark:text-slate-400">
+                  <label htmlFor="email" className="block text-xs font-bold font-mono uppercase tracking-wider mb-2 text-slate-400">
                     Email *
                   </label>
                   <Input
@@ -172,14 +172,14 @@ export default function ContactPage() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-850 bg-white/50 dark:bg-slate-950/50 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-850 bg-slate-950/50 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none text-slate-100"
                     placeholder="john@example.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-xs font-bold font-mono uppercase tracking-wider mb-2 text-slate-600 dark:text-slate-400">
+                <label htmlFor="subject" className="block text-xs font-bold font-mono uppercase tracking-wider mb-2 text-slate-400">
                   Subject *
                 </label>
                 <Input
@@ -189,13 +189,13 @@ export default function ContactPage() {
                   required
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-850 bg-white/50 dark:bg-slate-950/50 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-850 bg-slate-950/50 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none text-slate-100"
                   placeholder="Project Proposal / Consultation"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-xs font-bold font-mono uppercase tracking-wider mb-2 text-slate-600 dark:text-slate-400">
+                <label htmlFor="message" className="block text-xs font-bold font-mono uppercase tracking-wider mb-2 text-slate-400">
                   Message *
                 </label>
                 <Textarea
@@ -205,7 +205,7 @@ export default function ContactPage() {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-850 bg-white/50 dark:bg-slate-950/50 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-850 bg-slate-950/50 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none outline-none text-slate-100"
                   placeholder="Hi Uttam, I would love to collaborate with you on..."
                 />
               </div>
@@ -213,7 +213,7 @@ export default function ContactPage() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white py-4 rounded-xl text-base font-bold shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20 active:scale-[0.98] transition-all duration-300 disabled:opacity-50"
+                className="w-full theme-lab-btn text-white py-4 rounded-xl text-base font-bold shadow-lg hover:scale-[1.01] active:scale-[0.99] transition-all duration-300 disabled:opacity-50 border border-white/5"
               >
                 {isSubmitting ? (
                   <div className="flex items-center justify-center gap-2">
@@ -236,8 +236,8 @@ export default function ContactPage() {
             variants={itemVariants}
           >
             {/* Contact details card */}
-            <div className="bg-white/40 dark:bg-slate-900/40 backdrop-blur-md p-8 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-xl shadow-slate-900/5 dark:shadow-slate-950/20 space-y-8">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white pb-3 border-b border-slate-100 dark:border-slate-800">
+            <div className="theme-lab-card p-8 space-y-8 shadow-xl">
+              <h3 className="text-xl font-bold text-white pb-3 border-b border-slate-900">
                 Contact Information
               </h3>
 
@@ -246,15 +246,15 @@ export default function ContactPage() {
                   <motion.a
                     key={label}
                     href={href}
-                    className="flex items-center gap-5 p-4 rounded-2xl bg-white/30 dark:bg-slate-950/30 border border-slate-200/40 dark:border-slate-800/30 hover:border-blue-500/30 hover:bg-slate-50 dark:hover:bg-slate-800/20 transition-all duration-300 group"
+                    className="flex items-center gap-5 p-4 rounded-2xl bg-slate-950/40 border border-slate-900 hover:border-blue-500/30 hover:bg-slate-900/60 transition-all duration-300 group"
                     whileHover={{ scale: 1.02 }}
                   >
-                    <div className="w-12 h-12 bg-gradient-to-tr from-blue-500/10 to-indigo-500/10 dark:from-blue-500/20 dark:to-indigo-500/20 text-blue-600 dark:text-blue-400 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 bg-blue-500/10 text-blue-450 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform border border-blue-500/10">
                       <Icon className="h-5.5 w-5.5" />
                     </div>
                     <div>
-                      <div className="text-xs font-bold font-mono uppercase tracking-wider text-slate-450 dark:text-slate-500">{label}</div>
-                      <div className="font-semibold text-slate-800 dark:text-slate-200 break-all">{value}</div>
+                      <div className="text-xs font-bold font-mono uppercase tracking-wider text-slate-500">{label}</div>
+                      <div className="font-semibold text-slate-200 break-all">{value}</div>
                     </div>
                   </motion.a>
                 ))}
@@ -263,7 +263,7 @@ export default function ContactPage() {
 
             {/* Availability status */}
             <motion.div
-              className="bg-gradient-to-r from-emerald-500/5 to-teal-500/5 dark:from-emerald-500/10 dark:to-teal-500/10 p-6 rounded-3xl border border-emerald-500/20 dark:border-emerald-500/10 shadow-lg shadow-emerald-500/[0.02]"
+              className="bg-emerald-500/5 p-6 rounded-3xl border border-emerald-500/20 shadow-lg shadow-emerald-500/[0.02]"
               whileHover={{ y: -4 }}
             >
               <div className="flex items-center gap-3 mb-3">
@@ -271,9 +271,9 @@ export default function ContactPage() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                 </span>
-                <span className="font-bold text-sm text-emerald-800 dark:text-emerald-300">Available for Freelance & Remote Work</span>
+                <span className="font-bold text-sm text-emerald-300">Available for Freelance & Remote Work</span>
               </div>
-              <p className="text-sm text-emerald-600 dark:text-emerald-400 leading-relaxed font-medium">
+              <p className="text-sm text-emerald-450 leading-relaxed font-medium">
                 I'm currently accepting new projects, architecture design reviews, and engineering consulting engagements. Let's start the conversation!
               </p>
             </motion.div>

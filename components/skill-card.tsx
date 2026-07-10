@@ -14,18 +14,18 @@ interface SkillCardProps {
 export default function SkillCard({ category, icon: Icon, skills, color, index }: SkillCardProps) {
   return (
     <motion.div
-      className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+      className="p-6 theme-lab-card shadow-lg hover:shadow-xl transition-all duration-300"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.2 }}
       viewport={{ once: true }}
-      whileHover={{ scale: 1.05, y: -5 }}
+      whileHover={{ scale: 1.03, y: -4 }}
     >
       <div className="flex items-center gap-4 mb-4">
-        <div className={`w-12 h-12 bg-gradient-to-r ${color} rounded-lg flex items-center justify-center`}>
+        <div className={`w-12 h-12 bg-gradient-to-r ${color} rounded-lg flex items-center justify-center shadow-md`}>
           <Icon className="h-6 w-6 text-white" />
         </div>
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white">{category}</h3>
+        <h3 className="text-xl font-bold text-white">{category}</h3>
       </div>
 
       <div className="space-y-2">
@@ -35,11 +35,11 @@ export default function SkillCard({ category, icon: Icon, skills, color, index }
             className="flex items-center gap-2"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.2 + skillIndex * 0.1 }}
+            transition={{ duration: 0.4, delay: index * 0.2 + skillIndex * 0.05 }}
             viewport={{ once: true }}
           >
-            <div className={`w-2 h-2 bg-gradient-to-r ${color} rounded-full`} />
-            <span className="text-gray-600 dark:text-gray-300 font-medium">{skill}</span>
+            <div className="w-1.5 h-1.5 theme-lab-bg-gradient rounded-full" />
+            <span className="text-slate-300 font-medium text-sm">{skill}</span>
           </motion.div>
         ))}
       </div>

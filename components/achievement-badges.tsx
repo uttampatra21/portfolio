@@ -13,14 +13,8 @@ const achievements = [
   {
     icon: Award,
     title: "Cloud Integration",
-    description: "AWS S3 & Digital Ocean deploy",
+    description: "AWS S3 & Digital Ocean implements",
     color: "from-blue-500 to-indigo-600",
-  },
-  {
-    icon: Star,
-    title: "5-Star Rating",
-    description: "Consistent high-quality delivery",
-    color: "from-purple-500 to-pink-600",
   },
   {
     icon: Zap,
@@ -73,7 +67,7 @@ export default function AchievementBadges() {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-6 gap-4 lg:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
           {achievements.map((achievement, index) => (
             <motion.div
               key={achievement.title}
