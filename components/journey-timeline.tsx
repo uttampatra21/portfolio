@@ -63,20 +63,7 @@ const timelineData: TimelineItem[] = [
       "Practiced clean coding methods including SOLID and DRY patterns.",
     ],
     tags: ["JavaScript (ES6+)", "React.js", "Next.js", "Web Architectures", "Clean Code"],
-  },
-  {
-    id: 4,
-    type: "education",
-    title: "Bachelor of Arts",
-    subtitle: "Vidyasagar University",
-    period: "Aug 2020 - Jan 2024",
-    summary: "Developed strong conceptual bases in structured communication, system analysis, and logical reasoning.",
-    highlights: [
-      "Acquired critical thinking skills, structured communication, and conceptual problem-solving methods.",
-      "Participated in peer tutoring and team-focused college coordination roles.",
-    ],
-    tags: ["Analytical Thinking", "Structured Communication", "Logic & Reason"],
-  },
+  }
 ]
 
 export default function JourneyTimeline() {

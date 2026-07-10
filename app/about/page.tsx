@@ -290,7 +290,7 @@ export default function AboutPage() {
           <div className="space-y-8">
             {experience.map((exp, index) => (
               <motion.div
-                key={exp.title}
+                key={`${exp.company}-${exp.title}`}
                 className="relative pl-8 pb-8 border-l-2 border-slate-800/80 last:border-l-0"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
