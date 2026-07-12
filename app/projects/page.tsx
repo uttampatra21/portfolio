@@ -1,44 +1,46 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import AnimatedText from "@/components/animated-text"
-import ProjectCard from "@/components/project-card"
-import ScrollToTop from "@/components/scroll-to-top"
-import { Button } from "@/components/ui/button"
-import { Sparkles } from "lucide-react"
+import { motion } from "framer-motion";
+import AnimatedText from "@/components/animated-text";
+import ProjectCard from "@/components/project-card";
+import ScrollToTop from "@/components/scroll-to-top";
+import { Button } from "@/components/ui/button";
+import { Sparkles } from "lucide-react";
 
 const projects = [
   {
-    id: 1,
-    title: "Enterprise SaaS CRM",
+    id: 6,
+    title: "Rally-up Platform",
     description:
-      "A premium customer relationship management SaaS platform featuring comprehensive analytics dashboards, contact pipeline tracking, sales funnel monitoring, and user collaboration modules.",
-    image: "/projects/EnterpriseSaaSCRM.png",
-    technologies: ["React.js", "Next.js", "Tailwind CSS", "TypeScript", "Redux Toolkit", "Recharts"],
-    category: "SaaS Platform",
-    liveUrl: "https://saas-crm-uttam.netlify.app",
+      "Developed the modular frontend architecture, authentication flows, and API adapters. Implemented secure OTP validation, route protection, Redux actions, lazy loading, and rendering optimization.",
+    image: "/projects/rally-up.png",
+    technologies: [
+      "Next.js",
+      "Redux Toolkit",
+      "TypeScript",
+      "Tailwind CSS",
+      "RESTful APIs",
+    ],
+    category: "Event Booking",
+    liveUrl: "https://rally-up.com/",
     githubUrl: "#",
-    featured: true,
+    featured: false,
   },
-  {
-    id: 2,
-    title: "Way2Admission Portal",
-    description:
-      "A full-featured online career and admissions guidance portal helping students navigate courses, colleges, application pipelines, and seat choices in India and abroad with robust search engines.",
-    image: "/projects/Way2Admission.png",
-    technologies: ["React.js", "Tailwind CSS", "RESTful APIs", "Axios", "Redux Toolkit", "Responsive Layouts"],
-    category: "EdTech Platform",
-    liveUrl: "https://way2admission.in/",
-    githubUrl: "#",
-    featured: true,
-  },
+
   {
     id: 3,
     title: "CBTF CricStats AI",
     description:
       "A dynamic sports prediction and live cricket statistics platform offering real-time stats feeds, predictive match odds analysis widgets, and visual game trend lines via integrated sports data APIs.",
     image: "/projects/CBTFCricStatsAI.webp",
-    technologies: ["React.js", "Tailwind CSS", "Dynamic APIs", "WebSockets", "Highcharts", "Axios"],
+    technologies: [
+      "React.js",
+      "Tailwind CSS",
+      "Dynamic APIs",
+      "WebSockets",
+      "Highcharts",
+      "Axios",
+    ],
     category: "Sports Analytics",
     liveUrl: "https://www.cbtfcricstats.ai/",
     githubUrl: "#",
@@ -50,7 +52,13 @@ const projects = [
     description:
       "A dynamic soccer prediction and live statistics platform offering real-time stats feeds, match trends, and predictive odds analysis widgets via integrated sports data APIs.",
     image: "/projects/CBTFSoccerStats.png",
-    technologies: ["React.js", "Redux Toolkit", "JavaScript", "Tailwind CSS", "RESTful APIs"],
+    technologies: [
+      "React.js",
+      "Redux Toolkit",
+      "JavaScript",
+      "Tailwind CSS",
+      "RESTful APIs",
+    ],
     category: "Sports Analytics",
     liveUrl: "https://cbtfsoccerstats.netlify.app/",
     githubUrl: "#",
@@ -62,37 +70,61 @@ const projects = [
     description:
       "Led end-to-end frontend development, delivering scalable architecture, reusable components, payment integration, and production-ready chat channels. Integrated WebSockets, Google OAuth, and secure payment processors.",
     image: "/projects/GlobalSportsNetwork.png",
-    technologies: ["React.js", "Redux Toolkit", "JavaScript", "RESTful APIs", "WebSocket", "Razorpay", "OAuth"],
+    technologies: [
+      "React.js",
+      "Redux Toolkit",
+      "JavaScript",
+      "RESTful APIs",
+      "WebSocket",
+      "Razorpay",
+      "OAuth",
+    ],
     category: "Social Media Platform",
     liveUrl: "https://eagleglobalsportsnetwork.com/",
     githubUrl: "#",
     featured: false,
   },
-  {
-    id: 6,
-    title: "Rally-up Platform",
-    description:
-      "Developed the modular frontend architecture, authentication flows, and API adapters. Implemented secure OTP validation, route protection, Redux actions, lazy loading, and rendering optimization.",
-    image: "/projects/rally-up.png",
-    technologies: ["Next.js", "Redux Toolkit", "TypeScript", "Tailwind CSS", "RESTful APIs"],
-    category: "Event Booking",
-    liveUrl: "https://rally-up.com/",
-    githubUrl: "#",
-    featured: false,
-  },
+
   {
     id: 7,
     title: "Loadify Freight Map",
     description:
       "Architected the coordinate-mapping dashboard, auth logic, and responsive screens. Utilized Three.js WebGL rendering for 3D cargo packing visualizations and interactive logistic maps.",
     image: "/projects/LoadifyFreightMap.png",
-    technologies: ["React.js", "Redux Toolkit", "JavaScript", "Three.js", "Tailwind CSS", "RESTful APIs"],
+    technologies: [
+      "React.js",
+      "Redux Toolkit",
+      "JavaScript",
+      "Three.js",
+      "Tailwind CSS",
+      "RESTful APIs",
+    ],
     category: "3D Cargo Planing",
     liveUrl: "https://loadify-freight-map.notebrains.com/",
     githubUrl: "#",
     featured: false,
   },
-]
+
+  {
+    id: 8,
+    title: "Enterprise SaaS CRM",
+    description:
+      "A premium customer relationship management SaaS platform featuring comprehensive analytics dashboards, contact pipeline tracking, sales funnel monitoring, and user collaboration modules.",
+    image: "/projects/EnterpriseSaaSCRM.png",
+    technologies: [
+      "React.js",
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "Redux Toolkit",
+      "Recharts",
+    ],
+    category: "SaaS Platform",
+    liveUrl: "https://saas-crm-uttam.netlify.app",
+    githubUrl: "#",
+    featured: true,
+  },
+];
 
 export default function ProjectsPage() {
   return (
@@ -133,7 +165,8 @@ export default function ProjectsPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Here's a curated selection of production SaaS platforms, client portals, and dynamic web apps I've designed and engineered.
+            Here's a curated selection of production SaaS platforms, client
+            portals, and dynamic web apps I've designed and engineered.
           </motion.p>
         </motion.div>
 
@@ -145,7 +178,12 @@ export default function ProjectsPage() {
         >
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} featured={project.featured} />
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                featured={project.featured}
+              />
             ))}
           </div>
         </motion.div>
@@ -158,21 +196,28 @@ export default function ProjectsPage() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">Have a Project in Mind?</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-white">
+            Have a Project in Mind?
+          </h2>
           <p className="text-slate-300 mb-8 max-w-xl mx-auto leading-relaxed text-sm sm:text-base font-medium">
-            I'm always excited to design new platforms, scale frontend architectures, and collaborate on engaging user interfaces.
+            I'm always excited to design new platforms, scale frontend
+            architectures, and collaborate on engaging user interfaces.
           </p>
           <Button
             size="lg"
             className="theme-lab-btn text-white px-8 py-5 rounded-xl font-bold shadow-md hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 border border-white/5"
             asChild
           >
-            <motion.a href="/contact" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <motion.a
+              href="/contact"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
               Get In Touch
             </motion.a>
           </Button>
         </motion.div>
       </div>
     </div>
-  )
+  );
 }

@@ -75,24 +75,24 @@ const floatingVariants2: Variants = {
 
 const featuredProjects = [
   {
-    id: 1,
-    title: "Enterprise SaaS CRM",
+    id: 6,
+    title: "Rally-up Platform",
     description:
-      "A premium customer relationship management SaaS platform featuring comprehensive analytics dashboards, contact pipeline tracking, sales funnel monitoring, and user collaboration modules.",
-    image: "/projects/EnterpriseSaaSCRM.png",
+      "Developed the modular frontend architecture, authentication flows, and API adapters. Implemented secure OTP validation, route protection, Redux actions, lazy loading, and rendering optimization.",
+    image: "/projects/rally-up.png",
     technologies: [
-      "React.js",
       "Next.js",
-      "Tailwind CSS",
-      "TypeScript",
       "Redux Toolkit",
-      "Recharts",
+      "TypeScript",
+      "Tailwind CSS",
+      "RESTful APIs",
     ],
-    category: "SaaS Platform",
-    liveUrl: "https://saas-crm-uttam.netlify.app",
+    category: "Event Booking",
+    liveUrl: "https://rally-up.com/",
     githubUrl: "#",
-    featured: true,
+    featured: false,
   },
+
   {
     id: 3,
     title: "CBTF CricStats AI",
