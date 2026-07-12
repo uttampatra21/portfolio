@@ -71,30 +71,36 @@ export default function ParticleBackground() {
       // Fetch dynamic theme color from document elements if applied
       const customAccentRgb = document.documentElement.style.getPropertyValue('--custom-accent-rgb') || "59, 130, 246"
 
-      particles.forEach((particle, index) => {
+      // Optimize: Avoid repeated connection checks by iterating forwards only (j = i + 1)
+      // and bypass expensive Math.sqrt operations using squared threshold values.
+      for (let i = 0; i < particles.length; i++) {
+        const p1 = particles[i]
+
         // Update position
-        particle.x += particle.vx
-        particle.y += particle.vy
+        p1.x += p1.vx
+        p1.y += p1.vy
 
         // Bounce off edges
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
+        if (p1.x < 0 || p1.x > canvas.width) p1.vx *= -1
+        if (p1.y < 0 || p1.y > canvas.height) p1.vy *= -1
 
         // Draw particle
         ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-        ctx.fillStyle = particle.color
+        ctx.arc(p1.x, p1.y, p1.size, 0, Math.PI * 2)
+        ctx.fillStyle = p1.color
         ctx.fill()
 
-        // Draw connection to mouse cursor
+        // Draw connection to mouse cursor using squared check
         if (mouse.x !== null && mouse.y !== null) {
-          const dx = particle.x - mouse.x
-          const dy = particle.y - mouse.y
-          const distance = Math.sqrt(dx * dx + dy * dy)
+          const dx = p1.x - mouse.x
+          const dy = p1.y - mouse.y
+          const distSq = dx * dx + dy * dy
+          const mouseRadiusSq = mouse.radius * mouse.radius
 
-          if (distance < mouse.radius) {
+          if (distSq < mouseRadiusSq) {
+            const distance = Math.sqrt(distSq)
             ctx.beginPath()
-            ctx.moveTo(particle.x, particle.y)
+            ctx.moveTo(p1.x, p1.y)
             ctx.lineTo(mouse.x, mouse.y)
             ctx.strokeStyle = `rgba(${customAccentRgb}, ${0.12 * (1 - distance / mouse.radius)})`
             ctx.lineWidth = 0.6
@@ -102,24 +108,25 @@ export default function ParticleBackground() {
           }
         }
 
-        // Draw connections to other particles
-        particles.forEach((otherParticle, otherIndex) => {
-          if (index !== otherIndex) {
-            const dx = particle.x - otherParticle.x
-            const dy = particle.y - otherParticle.y
-            const distance = Math.sqrt(dx * dx + dy * dy)
+        // Draw connections to other particles (only check unique pairs and check squared distance first)
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j]
+          const dx = p1.x - p2.x
+          const dy = p1.y - p2.y
+          const distSq = dx * dx + dy * dy
+          const thresholdSq = 14400 // 120 * 120
 
-            if (distance < 120) {
-              ctx.beginPath()
-              ctx.moveTo(particle.x, particle.y)
-              ctx.lineTo(otherParticle.x, otherParticle.y)
-              ctx.strokeStyle = `rgba(${customAccentRgb}, ${0.05 * (1 - distance / 120)})`
-              ctx.lineWidth = 0.4
-              ctx.stroke()
-            }
+          if (distSq < thresholdSq) {
+            const distance = Math.sqrt(distSq)
+            ctx.beginPath()
+            ctx.moveTo(p1.x, p1.y)
+            ctx.lineTo(p2.x, p2.y)
+            ctx.strokeStyle = `rgba(${customAccentRgb}, ${0.05 * (1 - distance / 120)})`
+            ctx.lineWidth = 0.4
+            ctx.stroke()
           }
-        })
-      })
+        }
+      }
 
       requestAnimationFrame(animate)
     }

@@ -39,8 +39,18 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen)
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 pointer-events-none">
-      <motion.nav
+    <>
+      {/* Sleek, glowing full-width progress bar at the very top of the viewport */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[3.5px] origin-left z-[100]"
+        style={{
+          scaleX,
+          background: "linear-gradient(to right, hsl(var(--custom-accent)), rgba(var(--custom-accent-rgb), 0.8))",
+          boxShadow: "0 0 12px rgba(var(--custom-accent-rgb), 0.5), 0 0 4px rgba(var(--custom-accent-rgb), 0.3)",
+        }}
+      />
+      <div className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 pointer-events-none">
+        <motion.nav
         className={`mx-auto w-full max-w-7xl transition-all duration-500 pointer-events-auto rounded-2xl border backdrop-blur-md ${
           scrolled
             ? "border-slate-800 bg-slate-950/85 shadow-2xl shadow-black/60 px-6 py-2"
@@ -146,13 +156,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Scroll Progress Bar */}
-        {scrolled && (
-          <motion.div
-            className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 origin-left rounded-b-2xl"
-            style={{ scaleX }}
-          />
-        )}
       </motion.nav>
 
       {/* Mobile Navigation Drawer */}
@@ -207,6 +210,7 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+      </div>
+    </>
   )
 }

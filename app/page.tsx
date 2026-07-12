@@ -1,18 +1,29 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { motion, type Variants } from "framer-motion"
-import { ArrowRight, Download, Github, Linkedin, Mail, Code2, Zap, Cpu, LayoutGrid, Sparkles } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import AnimatedText from "@/components/animated-text"
-import ParticleBackground from "@/components/particle-background"
-import ScrollToTop from "@/components/scroll-to-top"
-import AchievementBadges from "@/components/achievement-badges"
-import ThemeLab from "@/components/theme-lab"
-import SkillsMatrix from "@/components/skills-matrix"
-import JourneyTimeline from "@/components/journey-timeline"
-import ProjectCard from "@/components/project-card"
+import { useState } from "react";
+import Link from "next/link";
+import { motion, type Variants } from "framer-motion";
+import {
+  ArrowRight,
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  Code2,
+  Zap,
+  Cpu,
+  LayoutGrid,
+  Sparkles,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import AnimatedText from "@/components/animated-text";
+import ParticleBackground from "@/components/particle-background";
+import ScrollToTop from "@/components/scroll-to-top";
+import AchievementBadges from "@/components/achievement-badges";
+import ThemeLab from "@/components/theme-lab";
+import SkillsMatrix from "@/components/skills-matrix";
+import JourneyTimeline from "@/components/journey-timeline";
+import ProjectCard from "@/components/project-card";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -23,7 +34,7 @@ const containerVariants: Variants = {
       staggerChildren: 0.1,
     },
   },
-}
+};
 
 const itemVariants: Variants = {
   hidden: { y: 30, opacity: 0 },
@@ -35,7 +46,7 @@ const itemVariants: Variants = {
       ease: "easeOut",
     },
   },
-}
+};
 
 const floatingVariants1: Variants = {
   animate: {
@@ -47,7 +58,7 @@ const floatingVariants1: Variants = {
       ease: "easeInOut",
     },
   },
-}
+};
 
 const floatingVariants2: Variants = {
   animate: {
@@ -60,15 +71,23 @@ const floatingVariants2: Variants = {
       delay: 1,
     },
   },
-}
+};
 
 const featuredProjects = [
   {
     id: 1,
     title: "Enterprise SaaS CRM",
-    description: "A premium customer relationship management SaaS platform featuring comprehensive analytics dashboards, contact pipeline tracking, sales funnel monitoring, and user collaboration modules.",
+    description:
+      "A premium customer relationship management SaaS platform featuring comprehensive analytics dashboards, contact pipeline tracking, sales funnel monitoring, and user collaboration modules.",
     image: "/projects/EnterpriseSaaSCRM.png",
-    technologies: ["React.js", "Next.js", "Tailwind CSS", "TypeScript", "Redux Toolkit", "Recharts"],
+    technologies: [
+      "React.js",
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "Redux Toolkit",
+      "Recharts",
+    ],
     category: "SaaS Platform",
     liveUrl: "https://saas-crm-uttam.netlify.app",
     githubUrl: "#",
@@ -77,9 +96,17 @@ const featuredProjects = [
   {
     id: 3,
     title: "CBTF CricStats AI",
-    description: "A dynamic sports prediction and live cricket statistics platform offering real-time stats feeds, predictive match odds analysis widgets, and visual game trend lines via integrated sports data APIs.",
+    description:
+      "A dynamic sports prediction and live cricket statistics platform offering real-time stats feeds, predictive match odds analysis widgets, and visual game trend lines via integrated sports data APIs.",
     image: "/projects/CBTFCricStatsAI.webp",
-    technologies: ["React.js", "Tailwind CSS", "Dynamic APIs", "WebSockets", "Highcharts", "Axios"],
+    technologies: [
+      "React.js",
+      "Tailwind CSS",
+      "Dynamic APIs",
+      "WebSockets",
+      "Highcharts",
+      "Axios",
+    ],
     category: "Sports Analytics",
     liveUrl: "https://www.cbtfcricstats.ai/",
     githubUrl: "#",
@@ -88,18 +115,26 @@ const featuredProjects = [
   {
     id: 7,
     title: "Loadify Freight Map",
-    description: "Architected the coordinate-mapping dashboard, auth logic, and responsive screens. Utilized Three.js WebGL rendering for 3D cargo packing visualizations and interactive logistic maps.",
+    description:
+      "Architected the coordinate-mapping dashboard, auth logic, and responsive screens. Utilized Three.js WebGL rendering for 3D cargo packing visualizations and interactive logistic maps.",
     image: "/projects/LoadifyFreightMap.png",
-    technologies: ["React.js", "Redux Toolkit", "JavaScript", "Three.js", "Tailwind CSS", "RESTful APIs"],
+    technologies: [
+      "React.js",
+      "Redux Toolkit",
+      "JavaScript",
+      "Three.js",
+      "Tailwind CSS",
+      "RESTful APIs",
+    ],
     category: "3D Cargo Planning",
     liveUrl: "https://loadify-freight-map.notebrains.com/",
     githubUrl: "#",
     featured: true,
   },
-]
+];
 
 export default function HomePage() {
-  const [activeHeroTab, setActiveHeroTab] = useState("developer.ts")
+  const [activeHeroTab, setActiveHeroTab] = useState("developer.ts");
 
   return (
     <div className="relative overflow-hidden bg-slate-950 text-slate-100">
@@ -109,18 +144,22 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center px-6 lg:px-8 relative z-10 overflow-hidden">
         {/* Ambient background glows */}
-        <div 
-          className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none transition-colors duration-500 opacity-20" 
-          style={{ backgroundColor: "rgb(var(--custom-accent-rgb, 59, 130, 246))" }}
+        <div
+          className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none transition-colors duration-500 opacity-20"
+          style={{
+            backgroundColor: "rgb(var(--custom-accent-rgb, 59, 130, 246))",
+          }}
         />
-        <div 
-          className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none transition-colors duration-500 opacity-10" 
-          style={{ backgroundColor: "rgb(var(--custom-accent-rgb, 99, 102, 241))" }}
+        <div
+          className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none transition-colors duration-500 opacity-10"
+          style={{
+            backgroundColor: "rgb(var(--custom-accent-rgb, 99, 102, 241))",
+          }}
         />
-        
+
         {/* Subtle grid pattern controlled by Theme Lab opacity */}
-        <div 
-          className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-0 transition-opacity duration-300" 
+        <div
+          className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-0 transition-opacity duration-300"
           style={{ opacity: "var(--bg-grid-opacity, 0.05)" }}
         />
 
@@ -131,7 +170,10 @@ export default function HomePage() {
           animate="visible"
         >
           {/* Text Content */}
-          <motion.div className="space-y-8 lg:space-y-10 lg:col-span-7 text-left" variants={itemVariants}>
+          <motion.div
+            className="space-y-8 lg:space-y-10 lg:col-span-7 text-left"
+            variants={itemVariants}
+          >
             <motion.div
               className="inline-flex items-center gap-2.5 px-4 py-2 bg-slate-900/40 backdrop-blur-md rounded-full border border-slate-800/50 shadow-sm shadow-blue-500/5"
               whileHover={{ scale: 1.03 }}
@@ -142,7 +184,7 @@ export default function HomePage() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
               <span className="text-[10px] font-bold text-slate-350 uppercase tracking-wider font-mono">
-                Available for new opportunities
+                Available for Freelance & Full-Time Work
               </span>
             </motion.div>
 
@@ -151,7 +193,8 @@ export default function HomePage() {
                 // Hello, World!
               </span>
               <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] text-white">
-                Hi, I'm <span className="theme-lab-text font-black">Uttam Patra</span>
+                Hi, I'm{" "}
+                <span className="theme-lab-text font-black">Uttam Patra</span>
               </h1>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-200 mt-2">
                 Frontend Architect & Developer
@@ -162,10 +205,17 @@ export default function HomePage() {
               className="text-lg text-slate-300 max-w-2xl leading-relaxed font-medium"
               variants={itemVariants}
             >
-              I design and build high-performance, enterprise-grade SaaS applications. Specializing in frontend architecture, modular systems, and slick responsive interfaces, I help scale startups and optimize digital products using modern web standards.
+              I design and engineer elite, high-performance web systems and SaaS
+              architectures. Partnering with global teams as a Freelance
+              Developer and Senior Frontend Architect, I build modular
+              components, optimize web vitals, and design interfaces that drive
+              engagement.
             </motion.p>
 
-            <motion.div className="flex flex-col sm:flex-row gap-4 lg:gap-6" variants={itemVariants}>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 lg:gap-6"
+              variants={itemVariants}
+            >
               <Button
                 size="lg"
                 className="theme-lab-btn text-white px-8 py-6 rounded-2xl text-base font-bold shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 group"
@@ -226,12 +276,18 @@ export default function HomePage() {
           </motion.div>
 
           {/* Profile/Mockup Column */}
-          <motion.div className="relative lg:col-span-5 h-[480px] flex items-center justify-center" variants={itemVariants}>
-            <div className="relative w-full max-w-[420px] h-[360px]">
+          <motion.div
+            className="relative lg:col-span-5 h-[500px] flex items-center justify-center"
+            variants={itemVariants}
+          >
+            <div className="relative w-full max-w-[420px] h-[420px]">
               {/* Decorative Glow Ring Behind Workspace */}
-              <div 
-                className="absolute inset-0 rounded-3xl blur-3xl opacity-30 animate-pulse pointer-events-none transition-colors duration-500" 
-                style={{ backgroundColor: "rgb(var(--custom-accent-rgb, 59, 130, 246))" }}
+              <div
+                className="absolute inset-0 rounded-3xl blur-3xl opacity-30 animate-pulse pointer-events-none transition-colors duration-500"
+                style={{
+                  backgroundColor:
+                    "rgb(var(--custom-accent-rgb, 59, 130, 246))",
+                }}
               />
 
               {/* IDE Code Workspace Mockup */}
@@ -244,19 +300,21 @@ export default function HomePage() {
                     <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
                   </div>
                   <div className="flex gap-1.5">
-                    {["developer.ts", "metrics.json", "stack.config"].map((tab) => (
-                      <button
-                        key={tab}
-                        onClick={() => setActiveHeroTab(tab)}
-                        className={`px-3 py-1 rounded-md text-[10px] md:text-xs font-mono transition-all ${
-                          activeHeroTab === tab
-                            ? "bg-slate-800/80 text-blue-400 font-semibold border-b border-blue-500"
-                            : "text-slate-500 hover:text-slate-350"
-                        }`}
-                      >
-                        {tab}
-                      </button>
-                    ))}
+                    {["developer.ts", "metrics.json", "stack.config"].map(
+                      (tab) => (
+                        <button
+                          key={tab}
+                          onClick={() => setActiveHeroTab(tab)}
+                          className={`px-3 py-1 rounded-md text-[10px] md:text-xs font-mono transition-all ${
+                            activeHeroTab === tab
+                              ? "bg-slate-800/80 text-blue-400 font-semibold border-b border-blue-500"
+                              : "text-slate-500 hover:text-slate-350"
+                          }`}
+                        >
+                          {tab}
+                        </button>
+                      ),
+                    )}
                   </div>
                 </div>
 
@@ -265,23 +323,54 @@ export default function HomePage() {
                   {activeHeroTab === "developer.ts" && (
                     <div className="font-mono text-[11px] md:text-[13px] text-slate-300 space-y-2.5">
                       <p>
-                        <span className="text-pink-500">import</span> &#123; <span className="text-blue-400">FrontendArchitect</span> &#125; <span className="text-pink-500">from</span> <span className="text-emerald-400">"dev"</span>;
+                        <span className="text-pink-500">import</span> &#123;{" "}
+                        <span className="text-blue-400">FrontendArchitect</span>{" "}
+                        &#125; <span className="text-pink-500">from</span>{" "}
+                        <span className="text-emerald-400">"dev"</span>;
                       </p>
                       <p>
-                        <span className="text-pink-500">const</span> <span className="text-yellow-400">uttamPatra</span> = <span className="text-pink-500">new</span> <span className="text-blue-400">FrontendArchitect</span>(&#123;
+                        <span className="text-pink-500">const</span>{" "}
+                        <span className="text-yellow-400">uttamPatra</span> ={" "}
+                        <span className="text-pink-500">new</span>{" "}
+                        <span className="text-blue-400">FrontendArchitect</span>
+                        (&#123;
                       </p>
                       <div className="pl-4 space-y-1">
-                        <p>name: <span className="text-emerald-400">"Uttam Patra"</span>,</p>
-                        <p>role: <span className="text-emerald-400">"Frontend Architect"</span>,</p>
-                        <p>experience: <span className="text-emerald-400">"2.5+ Years"</span>,</p>
+                        <p>
+                          name:{" "}
+                          <span className="text-emerald-400">
+                            "Uttam Patra"
+                          </span>
+                          ,
+                        </p>
+                        <p>
+                          role:{" "}
+                          <span className="text-emerald-400">
+                            "Frontend Architect & Freelancer"
+                          </span>
+                          ,
+                        </p>
+                        <p>
+                          experience:{" "}
+                          <span className="text-emerald-400">"2.5+ Years"</span>
+                          ,
+                        </p>
+                        <p>
+                          freelanceContractor:{" "}
+                          <span className="text-cyan-400">true</span>,
+                        </p>
                         <p>skills: [</p>
                         <div className="pl-4 text-amber-400">
-                          "React.js", "Next.js",<br/>
-                          "TypeScript", "TailwindCSS"<br/>
+                          "React.js", "Next.js",
+                          <br />
+                          "TypeScript", "TailwindCSS"
+                          <br />
                         </div>
                         <p>],</p>
-                        <p>cleanCode: <span className="text-cyan-400">true</span>,</p>
-                        <p>optimized: <span className="text-cyan-400">true</span></p>
+                        <p>
+                          performanceScore:{" "}
+                          <span className="text-emerald-400">99</span>
+                        </p>
                       </div>
                       <p>&#125;);</p>
                     </div>
@@ -291,18 +380,46 @@ export default function HomePage() {
                     <div className="font-mono text-[11px] md:text-[13px] text-slate-300 space-y-1">
                       <p>&#123;</p>
                       <div className="pl-4">
-                        <p><span className="text-blue-400">"lighthouse"</span>: &#123;</p>
+                        <p>
+                          <span className="text-blue-400">"lighthouse"</span>:
+                          &#123;
+                        </p>
                         <div className="pl-4">
-                          <p><span className="text-slate-400">"performance"</span>: <span className="text-emerald-400">99</span>,</p>
-                          <p><span className="text-slate-400">"accessibility"</span>: <span className="text-emerald-400">100</span>,</p>
-                          <p><span className="text-slate-400">"seo"</span>: <span className="text-emerald-400">100</span></p>
+                          <p>
+                            <span className="text-slate-400">
+                              "performance"
+                            </span>
+                            : <span className="text-emerald-400">99</span>,
+                          </p>
+                          <p>
+                            <span className="text-slate-400">
+                              "accessibility"
+                            </span>
+                            : <span className="text-emerald-400">100</span>,
+                          </p>
+                          <p>
+                            <span className="text-slate-400">"seo"</span>:{" "}
+                            <span className="text-emerald-400">100</span>
+                          </p>
                         </div>
                         <p>&#125;,</p>
-                        <p><span className="text-blue-400">"coreWebVitals"</span>: &#123;</p>
+                        <p>
+                          <span className="text-blue-400">"coreWebVitals"</span>
+                          : &#123;
+                        </p>
                         <div className="pl-4">
-                          <p><span className="text-slate-400">"LCP"</span>: <span className="text-emerald-400">"0.8s"</span>,</p>
-                          <p><span className="text-slate-400">"FID"</span>: <span className="text-emerald-400">"12ms"</span>,</p>
-                          <p><span className="text-slate-400">"CLS"</span>: <span className="text-emerald-400">0.01</span></p>
+                          <p>
+                            <span className="text-slate-400">"LCP"</span>:{" "}
+                            <span className="text-emerald-400">"0.8s"</span>,
+                          </p>
+                          <p>
+                            <span className="text-slate-400">"FID"</span>:{" "}
+                            <span className="text-emerald-400">"12ms"</span>,
+                          </p>
+                          <p>
+                            <span className="text-slate-400">"CLS"</span>:{" "}
+                            <span className="text-emerald-400">0.01</span>
+                          </p>
                         </div>
                         <p>&#125;</p>
                       </div>
@@ -313,14 +430,40 @@ export default function HomePage() {
                   {activeHeroTab === "stack.config" && (
                     <div className="font-mono text-[11px] md:text-[13px] text-slate-300 space-y-2">
                       <p>
-                        <span className="text-pink-500">const</span> <span className="text-yellow-400">techStack</span> = &#123;
+                        <span className="text-pink-500">const</span>{" "}
+                        <span className="text-yellow-400">techStack</span> =
+                        &#123;
                       </p>
                       <div className="pl-4 space-y-1">
-                        <p>library: <span className="text-emerald-400">"React 19"</span>,</p>
-                        <p>framework: <span className="text-emerald-400">"Next.js 15"</span>,</p>
-                        <p>styling: <span className="text-emerald-400">"TailwindCSS"</span>,</p>
-                        <p>stateManagement: <span className="text-emerald-400">"Zustand / Redux"</span>,</p>
-                        <p>animations: <span className="text-emerald-400">"Framer Motion"</span></p>
+                        <p>
+                          library:{" "}
+                          <span className="text-emerald-400">"React 19"</span>,
+                        </p>
+                        <p>
+                          framework:{" "}
+                          <span className="text-emerald-400">"Next.js 15"</span>
+                          ,
+                        </p>
+                        <p>
+                          styling:{" "}
+                          <span className="text-emerald-400">
+                            "TailwindCSS"
+                          </span>
+                          ,
+                        </p>
+                        <p>
+                          stateManagement:{" "}
+                          <span className="text-emerald-400">
+                            "Zustand / Redux"
+                          </span>
+                          ,
+                        </p>
+                        <p>
+                          animations:{" "}
+                          <span className="text-emerald-400">
+                            "Framer Motion"
+                          </span>
+                        </p>
                       </div>
                       <p>&#125;;</p>
                     </div>
@@ -346,22 +489,51 @@ export default function HomePage() {
                 </div>
                 <div className="grid grid-cols-2 gap-2.5">
                   {[
-                    { label: "Performance", score: 99, color: "text-emerald-500" },
-                    { label: "Accessibility", score: 100, color: "text-emerald-500" },
-                    { label: "Best Practices", score: 100, color: "text-emerald-500" },
+                    {
+                      label: "Performance",
+                      score: 99,
+                      color: "text-emerald-500",
+                    },
+                    {
+                      label: "Accessibility",
+                      score: 100,
+                      color: "text-emerald-500",
+                    },
+                    {
+                      label: "Best Practices",
+                      score: 100,
+                      color: "text-emerald-500",
+                    },
                     { label: "SEO", score: 100, color: "text-emerald-500" },
                   ].map((m) => (
-                    <div key={m.label} className="flex flex-col items-center justify-center">
+                    <div
+                      key={m.label}
+                      className="flex flex-col items-center justify-center"
+                    >
                       <div className="relative w-9 h-9 flex items-center justify-center">
                         <svg className="w-full h-full transform -rotate-90">
-                          <circle cx="18" cy="18" r="15" stroke="currentColor" strokeWidth="2" className="text-slate-850" fill="transparent" />
+                          <circle
+                            cx="18"
+                            cy="18"
+                            r="15"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            className="text-slate-850"
+                            fill="transparent"
+                          />
                           <motion.circle
-                            cx="18" cy="18" r="15" stroke="currentColor" strokeWidth="2.5"
+                            cx="18"
+                            cy="18"
+                            r="15"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
                             className={m.color}
                             fill="transparent"
                             strokeDasharray="94.2"
                             initial={{ strokeDashoffset: 94.2 }}
-                            animate={{ strokeDashoffset: 94.2 - (94.2 * m.score) / 100 }}
+                            animate={{
+                              strokeDashoffset: 94.2 - (94.2 * m.score) / 100,
+                            }}
                             transition={{ duration: 1.5, delay: 0.8 }}
                           />
                         </svg>
@@ -387,8 +559,12 @@ export default function HomePage() {
                   <Code2 className="h-3.5 w-3.5" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[9px] font-bold text-white leading-none">Clean Architecture</span>
-                  <span className="text-[7px] font-mono text-slate-400">TypeScript</span>
+                  <span className="text-[9px] font-bold text-white leading-none">
+                    Clean Architecture
+                  </span>
+                  <span className="text-[7px] font-mono text-slate-400">
+                    TypeScript
+                  </span>
                 </div>
               </motion.div>
 
@@ -401,11 +577,14 @@ export default function HomePage() {
                   <Zap className="h-3.5 w-3.5 text-yellow-500 animate-pulse" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[9px] font-bold text-white leading-none">Web Vitals</span>
-                  <span className="text-[7px] font-mono text-slate-400 font-medium">LCP 0.8s</span>
+                  <span className="text-[9px] font-bold text-white leading-none">
+                    Web Vitals
+                  </span>
+                  <span className="text-[7px] font-mono text-slate-400 font-medium">
+                    LCP 0.8s
+                  </span>
                 </div>
               </motion.div>
-
             </div>
           </motion.div>
         </motion.div>
@@ -429,7 +608,8 @@ export default function HomePage() {
               Core Expertise
             </h2>
             <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-              Engineering scalable foundations, rich data platforms, and high-performance frontend systems.
+              Engineering scalable foundations, rich data platforms, and
+              high-performance frontend systems.
             </p>
           </div>
 
@@ -439,34 +619,54 @@ export default function HomePage() {
               {
                 title: "Frontend Architecture",
                 subtitle: "Scalable Foundations",
-                description: "Designing modular, maintainable folder structures and clean component-driven systems.",
+                description:
+                  "Designing modular, maintainable folder structures and clean component-driven systems.",
                 icon: Cpu,
                 skills: ["Next.js & React", "TypeScript", "Zustand / Redux"],
-                iconBg: "bg-blue-500/20 text-blue-400 border border-blue-500/25",
+                iconBg:
+                  "bg-blue-500/20 text-blue-400 border border-blue-500/25",
               },
               {
                 title: "SaaS Dashboards",
                 subtitle: "Data & Interactivity",
-                description: "Crafting real-time analytical portals with interactive data grids and live feeds.",
+                description:
+                  "Crafting real-time analytical portals with interactive data grids and live feeds.",
                 icon: LayoutGrid,
-                skills: ["Live WebSockets", "Recharts / Highcharts", "Payment Gateways"],
-                iconBg: "bg-purple-500/20 text-purple-400 border border-purple-500/25",
+                skills: [
+                  "Live WebSockets",
+                  "Recharts / Highcharts",
+                  "Payment Gateways",
+                ],
+                iconBg:
+                  "bg-purple-500/20 text-purple-400 border border-purple-500/25",
               },
               {
                 title: "Performance Tuned",
                 subtitle: "Speed & Optimization",
-                description: "Applying advanced loading strategies to hit optimal Core Web Vitals and SEO compliance.",
+                description:
+                  "Applying advanced loading strategies to hit optimal Core Web Vitals and SEO compliance.",
                 icon: Zap,
-                skills: ["Code Splitting", "Optimized SEO", "SSR / Static Generation"],
-                iconBg: "bg-amber-500/20 text-amber-400 border border-amber-500/25",
+                skills: [
+                  "Code Splitting",
+                  "Optimized SEO",
+                  "SSR / Static Generation",
+                ],
+                iconBg:
+                  "bg-amber-500/20 text-amber-400 border border-amber-500/25",
               },
               {
                 title: "Clean Code & SOLID",
                 subtitle: "Sustainable Dev",
-                description: "Structuring readable, self-documenting code with comprehensive documentation and reviews.",
+                description:
+                  "Structuring readable, self-documenting code with comprehensive documentation and reviews.",
                 icon: Code2,
-                skills: ["DRY & SOLID Principles", "Semantic HTML", "Modular Components"],
-                iconBg: "bg-emerald-500/20 text-emerald-400 border border-emerald-500/25",
+                skills: [
+                  "DRY & SOLID Principles",
+                  "Semantic HTML",
+                  "Modular Components",
+                ],
+                iconBg:
+                  "bg-emerald-500/20 text-emerald-400 border border-emerald-500/25",
               },
             ].map((expertise, index) => (
               <motion.div
@@ -479,18 +679,20 @@ export default function HomePage() {
                 whileHover={{ y: -8 }}
               >
                 <div>
-                  <div className={`w-12 h-12 rounded-2xl ${expertise.iconBg} flex items-center justify-center mb-6`}>
+                  <div
+                    className={`w-12 h-12 rounded-2xl ${expertise.iconBg} flex items-center justify-center mb-6`}
+                  >
                     <expertise.icon className="h-6 w-6" />
                   </div>
-                  
+
                   <span className="text-[10px] font-bold tracking-wider uppercase opacity-60 font-mono block mb-1">
                     {expertise.subtitle}
                   </span>
-                  
+
                   <h3 className="text-xl font-bold text-white mb-3">
                     {expertise.title}
                   </h3>
-                  
+
                   <p className="text-sm text-slate-350 leading-relaxed mb-6">
                     {expertise.description}
                   </p>
@@ -528,19 +730,25 @@ export default function HomePage() {
                 Featured Work
               </span>
             </motion.div>
-            
+
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-white via-slate-200 to-white bg-clip-text text-transparent tracking-tight">
               Selected Creations
             </h2>
             <p className="text-base sm:text-lg text-slate-450 max-w-2xl mx-auto leading-relaxed">
-              Explore key production-grade dashboards, interactive charts, and logistics maps built using modern stacks.
+              Explore key production-grade dashboards, interactive charts, and
+              logistics maps built using modern stacks.
             </p>
           </div>
 
           {/* Project Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} featured={project.featured} />
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={index}
+                featured={project.featured}
+              />
             ))}
           </div>
 
@@ -580,9 +788,11 @@ export default function HomePage() {
           viewport={{ once: true }}
         >
           {/* Background Ambient Glow inside CTA */}
-          <div 
+          <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-88 h-88 rounded-full blur-3xl opacity-20 pointer-events-none transition-colors duration-500"
-            style={{ backgroundColor: "rgb(var(--custom-accent-rgb, 59, 130, 246))" }}
+            style={{
+              backgroundColor: "rgb(var(--custom-accent-rgb, 59, 130, 246))",
+            }}
           />
 
           <motion.h2
@@ -601,8 +811,8 @@ export default function HomePage() {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            Let's collaborate to transform your vision into a powerful digital solution that drives results and exceeds
-            expectations.
+            Let's collaborate to transform your vision into a powerful digital
+            solution that drives results and exceeds expectations.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -616,7 +826,11 @@ export default function HomePage() {
               className="theme-lab-btn text-white px-10 py-4 rounded-2xl text-lg font-bold shadow-lg transition-all duration-300"
               asChild
             >
-              <motion.a href="/contact" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.a
+                href="/contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 Start a Conversation
                 <ArrowRight className="ml-3 h-5 w-5" />
               </motion.a>
@@ -625,5 +839,5 @@ export default function HomePage() {
         </motion.div>
       </section>
     </div>
-  )
+  );
 }

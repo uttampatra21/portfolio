@@ -157,9 +157,7 @@ export default function AboutPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            I'm a passionate frontend developer with a love for creating beautiful, functional, and user-centered
-            digital experiences. When I'm not coding, you'll find me exploring new technologies or enjoying a good cup
-            of coffee.
+            I am a results-driven Frontend Architect and Developer specializing in crafting high-performance, responsive web applications and scalable SaaS systems. In addition to commercial corporate roles, I partner with businesses worldwide as a Freelance Consultant to architect outstanding digital platforms and optimize web vitals.
           </motion.p>
         </motion.div>
 
@@ -172,30 +170,26 @@ export default function AboutPage() {
           viewport={{ once: true }}
         >
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-white">My Journey</h2>
+            <h2 className="text-3xl font-bold text-white">My Journey & Expertise</h2>
             <div className="space-y-4 text-slate-350">
               <p>
-                My journey into web development started during college when I built my first website. What began as
-                curiosity quickly turned into passion as I discovered the power of code to bring ideas to life.
+                My journey into web development is driven by a commitment to frontend excellence and a passion for engineering pixel-perfect, highly responsive interfaces. I specialize in turning complex software requirements into intuitive, performant user experiences.
               </p>
               <p>
-                Over the years, I've had the privilege of working with amazing teams and clients, building everything
-                from simple landing pages to complex web applications. I believe in writing clean, maintainable code and
-                creating user experiences that make a difference.
+                Over the years, I have successfully operated in two fields: leading corporate frontend architectures and executing independent freelance contracts. Whether delivering production-grade SaaS models for teams or helping individual businesses scale their digital footprint from scratch, I focus on writing clean, modular, and future-proof code.
               </p>
               <p>
-                When I'm not coding, I enjoy contributing to open-source projects, writing technical articles, and
-                staying up-to-date with the latest industry trends.
+                I thrive on web performance optimization, API integrations, and robust state management. Every project I build is designed to be search-engine optimized, fully accessible, and blazing fast.
               </p>
             </div>
 
             {/* Fun Facts */}
             <div className="grid grid-cols-2 gap-4 pt-6">
               {[
-                { icon: Coffee, text: "Coffee Enthusiast" },
-                { icon: Code, text: "Open Source Contributor" },
-                { icon: Users, text: "Team Player" },
-                { icon: Award, text: "Problem Solver" },
+                { icon: BadgeCheck, text: "Freelance Consultant" },
+                { icon: Code, text: "SaaS Architect" },
+                { icon: Award, text: "Performance & SEO Expert" },
+                { icon: Users, text: "Team Collaborator" },
               ].map(({ icon: Icon, text }, index) => (
                 <motion.div
                   key={text}
@@ -206,7 +200,7 @@ export default function AboutPage() {
                   viewport={{ once: true }}
                 >
                   <Icon className="h-5 w-5 theme-lab-text" />
-                  <span className="text-sm font-medium text-slate-300">{text}</span>
+                  <span className="text-sm font-semibold text-slate-350">{text}</span>
                 </motion.div>
               ))}
             </div>

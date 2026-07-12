@@ -5,6 +5,8 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import CustomCursor from "@/components/custom-cursor"
+import SmoothScroll from "@/components/smooth-scroll"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -67,6 +69,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={inter.variable}>
       <body className="font-inter antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark" enableSystem={false} disableTransitionOnChange>
+          <SmoothScroll />
+          <CustomCursor />
           <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-slate-100 transition-all duration-500">
             <Navbar />
             <main className="pt-20">{children}</main>
