@@ -3,7 +3,7 @@
 import type React from "react"
 import { motion } from "framer-motion"
 import { Mail, Phone, MapPin, Send, Sparkles } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -62,6 +62,32 @@ export default function ContactPage() {
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search)
+      const packageName = params.get("package")
+      const cost = params.get("cost")
+      const projectType = params.get("type")
+      const pages = params.get("pages")
+      const express = params.get("express")
+
+      if (packageName) {
+        setFormData((prev) => ({
+          ...prev,
+          subject: `Request for Package: ${packageName}`,
+          message: `Hi Uttam,\n\nI am interested in hiring you for the "${packageName}" package (estimated at ₹${Number(cost).toLocaleString("en-IN")}). Please let me know how we can get started.\n\nBest regards,`
+        }))
+      } else if (projectType) {
+        const typeStr = projectType === "ui" ? "UI / Frontend Slice" : "Web Application"
+        setFormData((prev) => ({
+          ...prev,
+          subject: `Custom Estimate Quote for ${typeStr}`,
+          message: `Hi Uttam,\n\nI created a custom estimate on your website and would like to request a proposal:\n- Project Type: ${typeStr}\n- Total Screens/Pages: ${pages}\n- Delivery Speed: ${express === "true" ? "Express Shift" : "Standard Speed"}\n- Estimated Price: ₹${Number(cost).toLocaleString("en-IN")}\n\nLet me know your availability to discuss this!\n\nBest regards,`
+        }))
+      }
+    }
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

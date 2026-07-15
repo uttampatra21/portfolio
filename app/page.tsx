@@ -92,7 +92,6 @@ const featuredProjects = [
     githubUrl: "#",
     featured: false,
   },
-
   {
     id: 3,
     title: "CBTF CricStats AI",
@@ -142,20 +141,37 @@ export default function HomePage() {
       <ScrollToTop />
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-6 lg:px-8 relative z-10 overflow-hidden">
+      <section className="min-h-screen flex flex-col justify-center items-center px-6 lg:px-8 relative z-10 overflow-hidden">
+        {/* CSS for horizontal tech marquee */}
+        <style>{`
+          @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+          }
+          .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 28s linear infinite;
+          }
+          .animate-marquee:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+
         {/* Ambient background glows */}
         <div
-          className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full blur-3xl pointer-events-none transition-colors duration-500 opacity-20"
+          className="absolute top-[-10%] left-[-15%] w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none transition-colors duration-500 opacity-20"
           style={{
             backgroundColor: "rgb(var(--custom-accent-rgb, 59, 130, 246))",
           }}
         />
         <div
-          className="absolute bottom-[20%] right-[-10%] w-[600px] h-[600px] rounded-full blur-3xl pointer-events-none transition-colors duration-500 opacity-10"
+          className="absolute bottom-[20%] right-[-15%] w-[650px] h-[650px] rounded-full blur-3xl pointer-events-none transition-colors duration-500 opacity-15"
           style={{
             backgroundColor: "rgb(var(--custom-accent-rgb, 99, 102, 241))",
           }}
         />
+        <div className="absolute top-[30%] left-[45%] w-[400px] h-[400px] rounded-full blur-3xl pointer-events-none bg-purple-500/5" />
 
         {/* Subtle grid pattern controlled by Theme Lab opacity */}
         <div
@@ -164,7 +180,7 @@ export default function HomePage() {
         />
 
         <motion.div
-          className="max-w-7xl w-full mx-auto grid lg:grid-cols-12 gap-16 lg:gap-8 items-center relative z-10 pt-28 pb-16 lg:pt-32 lg:pb-20"
+          className="max-w-7xl w-full mx-auto grid lg:grid-cols-12 gap-16 lg:gap-8 items-center relative z-10 pt-28 pb-12 lg:pt-36 lg:pb-16"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -184,7 +200,7 @@ export default function HomePage() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
               <span className="text-[10px] font-bold text-slate-350 uppercase tracking-wider font-mono">
-                Available for Freelance & Full-Time Work
+                Available for Freelance & Consultations
               </span>
             </motion.div>
 
@@ -192,28 +208,30 @@ export default function HomePage() {
               <span className="text-sm md:text-base font-bold tracking-widest uppercase font-mono block theme-lab-text">
                 // Hello, World!
               </span>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1] text-white">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.05] text-white">
                 Hi, I'm{" "}
-                <span className="theme-lab-text font-black">Uttam Patra</span>
+                <span className="bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent font-black">
+                  Uttam Patra
+                </span>
               </h1>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-200 mt-2">
-                Frontend Architect & Developer
-              </h2>
+              <div className="inline-block">
+                <span className="text-sm md:text-base font-bold text-slate-300 font-mono bg-slate-900/90 border border-slate-850 px-3.5 py-1.5 rounded-xl">
+                  &lt; Frontend Architect & Developer /&gt;
+                </span>
+              </div>
             </div>
 
             <motion.p
               className="text-lg text-slate-300 max-w-2xl leading-relaxed font-medium"
               variants={itemVariants}
             >
-              I design and engineer elite, high-performance web systems and SaaS
-              architectures. Partnering with global teams as a Freelance
-              Developer and Senior Frontend Architect, I build modular
-              components, optimize web vitals, and design interfaces that drive
-              engagement.
+              I design and engineer elite, high-performance SaaS platforms and web ecosystems. 
+              As a senior frontend architect and CTO, I construct secure, type-safe React layouts, 
+              establish high-fidelity design systems, and lead product engineering with startup velocity.
             </motion.p>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 lg:gap-6"
+              className="flex flex-wrap gap-4 lg:gap-6"
               variants={itemVariants}
             >
               <Button
@@ -222,7 +240,7 @@ export default function HomePage() {
                 asChild
               >
                 <Link href="/projects">
-                  View My Work
+                  View Selected Work
                   <ArrowRight className="ml-2.5 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
@@ -233,14 +251,32 @@ export default function HomePage() {
                 className="px-8 py-6 rounded-2xl border border-slate-800 bg-slate-900/40 backdrop-blur-sm hover:bg-slate-800/80 text-base font-bold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 text-slate-200"
                 asChild
               >
-                <a href="/resume.pdf" download>
-                  <Download className="mr-2.5 h-5 w-5" />
-                  Download Resume
-                </a>
+                <Link href="/services">
+                  Pricing & Estimator
+                </Link>
               </Button>
             </motion.div>
 
-            <motion.div className="flex gap-4 pt-6" variants={itemVariants}>
+            {/* Performance Stats Panel */}
+            <motion.div 
+              className="grid grid-cols-3 gap-6 pt-8 border-t border-slate-900/60 max-w-xl text-left"
+              variants={itemVariants}
+            >
+              {[
+                { label: "Core Web Vitals", value: "0.8s LCP", desc: "Edge Caching" },
+                { label: "Engineering Standard", value: "Type-Safe", desc: "SOLID / DRY" },
+                { label: "AI Integration Speed", value: "2.5x Velocity", desc: "Fast Shipping" }
+              ].map((stat, i) => (
+                <div key={i} className="space-y-1">
+                  <span className="text-xs font-mono font-bold theme-lab-text block">{stat.value}</span>
+                  <span className="text-[10px] text-slate-250 font-bold block">{stat.label}</span>
+                  <span className="text-[9px] text-slate-500 block">{stat.desc}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Social Channels */}
+            <motion.div className="flex gap-4 pt-4" variants={itemVariants}>
               {[
                 {
                   icon: Github,
@@ -291,7 +327,7 @@ export default function HomePage() {
               />
 
               {/* IDE Code Workspace Mockup */}
-              <div className="absolute inset-0 rounded-2xl border border-slate-850 shadow-2xl bg-slate-950/95 flex flex-col text-left pointer-events-auto overflow-hidden">
+              <div className="absolute inset-0 rounded-2xl border border-slate-850/80 shadow-2xl bg-slate-950/80 backdrop-blur-md flex flex-col text-left pointer-events-auto overflow-hidden">
                 {/* IDE Tab Header */}
                 <div className="flex items-center justify-between px-4 py-3 border-b border-slate-900 bg-slate-900/40">
                   <div className="flex gap-2">
@@ -346,13 +382,13 @@ export default function HomePage() {
                         <p>
                           role:{" "}
                           <span className="text-emerald-400">
-                            "Frontend Architect & Freelancer"
+                            "CTO & Lead Frontend Architect"
                           </span>
                           ,
                         </p>
                         <p>
                           experience:{" "}
-                          <span className="text-emerald-400">"2.5+ Years"</span>
+                          <span className="text-emerald-400">"3+ Years"</span>
                           ,
                         </p>
                         <p>
@@ -454,7 +490,7 @@ export default function HomePage() {
                         <p>
                           stateManagement:{" "}
                           <span className="text-emerald-400">
-                            "Zustand / Redux"
+                            "Redux / Context"
                           </span>
                           ,
                         </p>
@@ -468,6 +504,15 @@ export default function HomePage() {
                       <p>&#125;;</p>
                     </div>
                   )}
+                </div>
+
+                {/* IDE Terminal Status bar */}
+                <div className="px-4 py-2 border-t border-slate-900/60 bg-slate-950/60 flex items-center justify-between font-mono text-[9px] text-slate-500">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    server: ready (next-dev)
+                  </span>
+                  <span>port: 3000</span>
                 </div>
               </div>
 
@@ -551,7 +596,7 @@ export default function HomePage() {
 
               {/* Floating Tech Badges around IDE Workspace */}
               <motion.div
-                className="absolute -top-6 -left-6 bg-slate-905/90 backdrop-blur-md rounded-xl border border-slate-800 shadow-xl p-2.5 flex items-center gap-2 z-20 pointer-events-auto"
+                className="absolute -top-6 -left-6 bg-slate-905/90 backdrop-blur-md rounded-xl border border-slate-800/80 shadow-xl p-2.5 flex items-center gap-2 z-20 pointer-events-auto"
                 variants={floatingVariants1}
                 animate="animate"
               >
@@ -569,7 +614,7 @@ export default function HomePage() {
               </motion.div>
 
               <motion.div
-                className="absolute top-1/3 -right-6 bg-slate-905/90 backdrop-blur-md rounded-xl border border-slate-800 shadow-xl p-2.5 flex items-center gap-2 z-20 pointer-events-auto"
+                className="absolute top-1/3 -right-6 bg-slate-905/90 backdrop-blur-md rounded-xl border border-slate-800/80 shadow-xl p-2.5 flex items-center gap-2 z-20 pointer-events-auto"
                 variants={floatingVariants2}
                 animate="animate"
               >
@@ -588,6 +633,21 @@ export default function HomePage() {
             </div>
           </motion.div>
         </motion.div>
+
+        {/* Infinite Technology Marquee Loop */}
+        <div className="w-full py-8 border-y border-slate-900/60 overflow-hidden relative bg-slate-950/20 backdrop-blur-sm z-10 mt-12">
+          <div className="animate-marquee whitespace-nowrap flex gap-12 text-slate-500 font-mono text-xs uppercase tracking-widest font-bold">
+            {[
+              "React.js", "Next.js", "TypeScript", "Redux Toolkit", "Context API", "Tailwind CSS", "Framer Motion", "Node.js", "PostgreSQL", "WebSockets", "RESTful APIs", "Axios Adapters",
+              "React.js", "Next.js", "TypeScript", "Redux Toolkit", "Context API", "Tailwind CSS", "Framer Motion", "Node.js", "PostgreSQL", "WebSockets", "RESTful APIs", "Axios Adapters"
+            ].map((tech, i) => (
+              <span key={i} className="flex items-center gap-2 hover:text-white transition-colors duration-250 cursor-default">
+                <span className="h-2 w-2 rounded-full bg-blue-500/60" />
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Achievement Badges */}
@@ -622,7 +682,7 @@ export default function HomePage() {
                 description:
                   "Designing modular, maintainable folder structures and clean component-driven systems.",
                 icon: Cpu,
-                skills: ["Next.js & React", "TypeScript", "Zustand / Redux"],
+                skills: ["Next.js & React", "TypeScript", "Redux & Context"],
                 iconBg:
                   "bg-blue-500/20 text-blue-400 border border-blue-500/25",
               },

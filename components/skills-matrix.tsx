@@ -29,7 +29,7 @@ const skillCategories: SkillCategory[] = [
       { name: "Next.js", level: 95, useFrequency: "Daily", highlight: "App router, SSR/ISR optimization, dynamic middleware" },
       { name: "React 19", level: 95, useFrequency: "Daily", highlight: "React Server Components, custom hook design, concurrent features" },
       { name: "Redux Toolkit", level: 90, useFrequency: "Daily", highlight: "Centralized slice management, RTK Query caching adapters" },
-      { name: "Zustand", level: 85, useFrequency: "Frequent", highlight: "Ultra-light reactive state containers for SaaS widgets" },
+      { name: "Context API", level: 88, useFrequency: "Daily", highlight: "Native React state sharing for lightweight user contexts" },
     ],
   },
   {
