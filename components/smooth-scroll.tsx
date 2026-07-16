@@ -15,17 +15,28 @@ export default function SmoothScroll() {
       touchMultiplier: 1.5,
     })
 
-    function raf(time: number) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
+    // Store lenis on window so other components can interact with it
+    if (typeof window !== "undefined") {
+      ;(window as any).lenis = lenis
     }
 
-    requestAnimationFrame(raf)
+    let rafId: number
+    function raf(time: number) {
+      lenis.raf(time)
+      rafId = requestAnimationFrame(raf)
+    }
+
+    rafId = requestAnimationFrame(raf)
 
     return () => {
+      cancelAnimationFrame(rafId)
       lenis.destroy()
+      if (typeof window !== "undefined" && (window as any).lenis === lenis) {
+        ;(window as any).lenis = undefined
+      }
     }
   }, [])
 
   return null
 }
+
