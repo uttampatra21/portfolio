@@ -82,7 +82,7 @@ const skills = [
 
 const experience = [
   {
-    title: "Leading Technical Architecture & Co-Founder",
+    title: "Leading Technical Architecture",
     company: "CareerGarantia",
     period: "Jan 2025 - Present",
     type: "Leadership",

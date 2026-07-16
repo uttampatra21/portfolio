@@ -81,7 +81,7 @@
 
 .theme-lab-bg-gradient {
   background: linear-gradient(to right, hsl(var(--custom-accent)), rgba(var(--custom-accent-rgb), 0.7));
-  transition: all 0.4s ease;
+  transition: background 0.4s ease;
 }
 
 .theme-lab-btn {
@@ -90,7 +90,7 @@
   background-color: transparent !important;
   color: #ffffff !important;
   box-shadow: 0 8px 24px -6px rgba(var(--custom-accent-rgb), calc(var(--custom-glow-opacity) * 1.5)) !important;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .theme-lab-btn * {
@@ -109,7 +109,7 @@
   background-color: rgba(255, 255, 255, 0.45);
   border: 1px solid rgba(var(--custom-accent-rgb), 0.15);
   box-shadow: 0 8px 30px -10px rgba(var(--custom-accent-rgb), calc(var(--custom-glow-opacity) * 0.3));
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .dark .theme-lab-card {
@@ -124,7 +124,7 @@
 
 .theme-lab-glow-border {
   border-color: rgba(var(--custom-accent-rgb), 0.15);
-  transition: all 0.4s ease;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 .theme-lab-glow-border:hover {
   border-color: rgba(var(--custom-accent-rgb), 0.4);
