@@ -17,13 +17,15 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedText from "@/components/animated-text";
-import ParticleBackground from "@/components/particle-background";
 import ScrollToTop from "@/components/scroll-to-top";
-import AchievementBadges from "@/components/achievement-badges";
-import ThemeLab from "@/components/theme-lab";
-import SkillsMatrix from "@/components/skills-matrix";
-import JourneyTimeline from "@/components/journey-timeline";
 import ProjectCard from "@/components/project-card";
+import dynamic from "next/dynamic";
+
+const ParticleBackground = dynamic(() => import("@/components/particle-background"), { ssr: false });
+const AchievementBadges = dynamic(() => import("@/components/achievement-badges"), { ssr: false });
+const ThemeLab = dynamic(() => import("@/components/theme-lab"), { ssr: false });
+const SkillsMatrix = dynamic(() => import("@/components/skills-matrix"), { ssr: false });
+const JourneyTimeline = dynamic(() => import("@/components/journey-timeline"), { ssr: false });
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
