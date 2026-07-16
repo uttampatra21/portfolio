@@ -565,7 +565,7 @@ export default function ServicesPage() {
                   {/* Project Type Selection */}
                   <div className="space-y-2">
                     <span className="text-xs font-bold text-slate-400 font-mono uppercase tracking-wider block">Project Scope Type</span>
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <button
                         onClick={() => setProjectType("ui")}
                         className={`p-4 rounded-xl border flex flex-col gap-1.5 items-start text-left transition-all ${

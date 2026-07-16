@@ -261,7 +261,7 @@ export default function HomePage() {
 
             {/* Performance Stats Panel */}
             <motion.div 
-              className="grid grid-cols-3 gap-6 pt-8 border-t border-slate-900/60 max-w-xl text-left"
+              className="grid grid-cols-3 gap-4 sm:gap-6 pt-8 border-t border-slate-900/60 max-w-xl text-left"
               variants={itemVariants}
             >
               {[
