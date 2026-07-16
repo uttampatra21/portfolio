@@ -226,7 +226,7 @@ export default function HomePage() {
               variants={itemVariants}
             >
               I design and engineer elite, high-performance SaaS platforms and web ecosystems. 
-              As a senior frontend architect and CTO, I construct secure, type-safe React layouts, 
+              As a senior frontend architect, I construct secure, type-safe React layouts, 
               establish high-fidelity design systems, and lead product engineering with startup velocity.
             </motion.p>
 
@@ -382,7 +382,7 @@ export default function HomePage() {
                         <p>
                           role:{" "}
                           <span className="text-emerald-400">
-                            "CTO & Lead Frontend Architect"
+                            "Lead Frontend Architect & Technical Lead"
                           </span>
                           ,
                         </p>

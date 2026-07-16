@@ -161,7 +161,7 @@ export default function CareerGarantiaPage() {
           </div>
         </motion.div>
 
-        {/* High-Level CTO Impact Grid */}
+        {/* High-Level Architecture Impact Grid */}
         <div className="grid md:grid-cols-3 gap-6 mb-20">
           {[
             {
@@ -318,7 +318,7 @@ export default function CareerGarantiaPage() {
         >
           <div className="border-l-4 border-emerald-500 pl-4 mb-12">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              Engineering Achievements under my CTO Reign
+              Engineering Achievements under my Technical Leadership
             </h2>
             <p className="text-slate-400 mt-1 text-sm font-medium">
               Concrete metrics and outcomes delivered through high-end
@@ -379,7 +379,7 @@ export default function CareerGarantiaPage() {
               We continue to iterate on state-of-the-art software systems that
               scale training, improve feedback loops, and connect students
               directly to global job markets. If you are looking to hire a
-              CTO-grade architect to consult on your system structure, let's
+              lead architect to consult on your system structure, let's
               talk.
             </p>
             <div className="pt-2 flex flex-col sm:flex-row gap-4 justify-center">
@@ -387,8 +387,8 @@ export default function CareerGarantiaPage() {
                 className="theme-lab-btn text-white rounded-xl py-6 px-6 font-bold shadow-lg"
                 asChild
               >
-                <Link href="/contact?subject=CTO Consultation">
-                  Consult with CTO
+                <Link href="/contact?subject=Architecture Consultation">
+                  Consult with Lead Architect
                   <ChevronRight className="h-4.5 w-4.5 ml-1.5" />
                 </Link>
               </Button>

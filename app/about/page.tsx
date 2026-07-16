@@ -27,7 +27,7 @@ import { Button } from "@/components/ui/button";
 
 const stats = [
   { value: "3+ Years", label: "Frontend Experience" },
-  { value: "CTO / Lead", label: "Technical Leadership" },
+  { value: "Lead / Architect", label: "Technical Leadership" },
   { value: "99+", label: "Lighthouse Performance" },
   { value: "20+", label: "Products Delivered" },
 ];
