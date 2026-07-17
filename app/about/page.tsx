@@ -94,7 +94,7 @@ const experience = [
       "Reduced platform latency by 55% through optimized server-side rendering, asset preloading, and caching strategies.",
     ],
     link: "/careergrid", // Link to cases study
-    linkText: "View CareerGarantia Technical Case Study",
+    linkText: "View Technical Case Study",
   },
   {
     title: "Senior Web Developer (Frontend Specialist)",
